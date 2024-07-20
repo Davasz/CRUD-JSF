@@ -15,20 +15,26 @@ public class Empresa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nome_fantasia")
+    @Column(name = "nome_fantasia", nullable = false, length = 80)
     private String nomeFantasia;
 
-    @Column(name = "razao_social")
+    @Column(name = "razao_social", nullable = false, length = 120)
     private String razaoSocial;
 
+    @Column(nullable = false, length = 18)
     private String cnpj;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
+    @Column(name = "data_fundacao")
     private Date dataFundacao;
 
     @ManyToOne
-    @JoinColumn(name = "ramo_atividade")
+    @JoinColumn(name = "ramo_atividade", nullable = false)
     private RamoAtividade ramoAtividade;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_empresa", length = 30)
+    private TipoEmpresa tipo;
 
     public Long getId() {
         return id;
