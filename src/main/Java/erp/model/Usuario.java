@@ -32,15 +32,58 @@ public class Usuario implements Serializable {
     @Column(name = "data_atualizacao")
     private Date dataAtualizacao;
 
+    @Column(name = "imagem_perfil")
+    private String imagemPerfil;
+
+    @Column(name = "status", nullable = false)
+    private String status;
+
+    @Column(name = "telefone")
+    private String telefone;
+
+    @Column(name = "endereco_rua")
+    private String enderecoRua;
+
+    @Column(name = "endereco_numero")
+    private String enderecoNumero;
+
+    @Column(name = "endereco_bairro")
+    private String enderecoBairro;
+
+    @Column(name = "endereco_cidade")
+    private String enderecoCidade;
+
+    @Column(name = "endereco_estado")
+    private String enderecoEstado;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "data_nascimento")
+    private Date dataNascimento;
+
+    @Column(name = "roles")
+    private String roles;
+
     public Usuario() {}
 
-    public Usuario(String nome, String email, String senha, Date dataCriacao, Date dataAtualizacao) {
+    public Usuario(String nome, String email, String senha, Date dataCriacao, Date dataAtualizacao, String imagemPerfil, String status, String telefone, String enderecoRua, String enderecoNumero, String enderecoBairro, String enderecoCidade, String enderecoEstado, Date dataNascimento, String roles) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.dataCriacao = dataCriacao;
         this.dataAtualizacao = dataAtualizacao;
+        this.imagemPerfil = imagemPerfil;
+        this.status = status;
+        this.telefone = telefone;
+        this.enderecoRua = enderecoRua;
+        this.enderecoNumero = enderecoNumero;
+        this.enderecoBairro = enderecoBairro;
+        this.enderecoCidade = enderecoCidade;
+        this.enderecoEstado = enderecoEstado;
+        this.dataNascimento = dataNascimento;
+        this.roles = roles;
     }
+
+    // Getters and Setters for all fields
 
     public Long getId() {
         return id;
@@ -90,6 +133,86 @@ public class Usuario implements Serializable {
         this.dataAtualizacao = dataAtualizacao;
     }
 
+    public String getImagemPerfil() {
+        return imagemPerfil;
+    }
+
+    public void setImagemPerfil(String imagemPerfil) {
+        this.imagemPerfil = imagemPerfil;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEnderecoRua() {
+        return enderecoRua;
+    }
+
+    public void setEnderecoRua(String enderecoRua) {
+        this.enderecoRua = enderecoRua;
+    }
+
+    public String getEnderecoNumero() {
+        return enderecoNumero;
+    }
+
+    public void setEnderecoNumero(String enderecoNumero) {
+        this.enderecoNumero = enderecoNumero;
+    }
+
+    public String getEnderecoBairro() {
+        return enderecoBairro;
+    }
+
+    public void setEnderecoBairro(String enderecoBairro) {
+        this.enderecoBairro = enderecoBairro;
+    }
+
+    public String getEnderecoCidade() {
+        return enderecoCidade;
+    }
+
+    public void setEnderecoCidade(String enderecoCidade) {
+        this.enderecoCidade = enderecoCidade;
+    }
+
+    public String getEnderecoEstado() {
+        return enderecoEstado;
+    }
+
+    public void setEnderecoEstado(String enderecoEstado) {
+        this.enderecoEstado = enderecoEstado;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -112,6 +235,16 @@ public class Usuario implements Serializable {
                 ", senha='" + senha + '\'' +
                 ", dataCriacao=" + dataCriacao +
                 ", dataAtualizacao=" + dataAtualizacao +
+                ", imagemPerfil='" + imagemPerfil + '\'' +
+                ", status='" + status + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", enderecoRua='" + enderecoRua + '\'' +
+                ", enderecoNumero='" + enderecoNumero + '\'' +
+                ", enderecoBairro='" + enderecoBairro + '\'' +
+                ", enderecoCidade='" + enderecoCidade + '\'' +
+                ", enderecoEstado='" + enderecoEstado + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", roles='" + roles + '\'' +
                 '}';
     }
 }
