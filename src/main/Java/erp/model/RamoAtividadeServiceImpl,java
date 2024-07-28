@@ -1,0 +1,47 @@
+package erp.service.impl;
+
+import erp.dao.RamoAtividadeDAO;
+import erp.model.RamoAtividade;
+import erp.service.RamoAtividadeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import javax.transaction.Transactional;
+import java.util.List;
+
+@Service
+public class RamoAtividadeServiceImpl implements RamoAtividadeService {
+
+    @Autowired
+    private RamoAtividadeDAO ramoAtividadeDAO;
+
+    @Override
+    @Transactional
+    public void save(RamoAtividade ramoAtividade) {
+        ramoAtividadeDAO.save(ramoAtividade);
+    }
+
+    @Override
+    public RamoAtividade findById(Long id) {
+        return ramoAtividadeDAO.findById(id);
+    }
+
+    @Override
+    public List<RamoAtividade> findAll() {
+        return ramoAtividadeDAO.findAll();
+    }
+
+    @Override
+    @Transactional
+    public void update(RamoAtividade ramoAtividade) {
+        ramoAtividadeDAO.update(ramoAtividade);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long id) {
+        RamoAtividade ramoAtividade = ramoAtividadeDAO.findById(id);
+        if (ramoAtividade != null) {
+            ramoAtividadeDAO.delete(ramoAtividade);
+        }
+    }
+}
